@@ -121,3 +121,5 @@ xcuserdata
  
 *.moved-aside
  
+# Cocoapods
+Pods
