@@ -1,10 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uBG-TR-UA3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="E0F-1y-Ea6">
+            <objects>
+                <viewController id="chs-30-0NM" customClass="ViewController" customModule="HomeSplash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wLy-DS-zPi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iGd-Go-4hO" userLabel="Image View 1">
+                                <rect key="frame" x="137" y="163" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="H81-Rz-9H8" appends="YES" id="HhI-d7-Gw1"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWE-C9-0Dn" userLabel="Image View 2">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cWE-C9-0Dn" secondAttribute="height" multiplier="1:1" id="Lb0-HS-VD9"/>
+                                    <constraint firstAttribute="height" constant="100" id="f1k-r5-vvo"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HUV-7G-2fe" appends="YES" id="u6M-SE-Fyw"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hrk-Hd-ycH" userLabel="Image View 3">
+                                <rect key="frame" x="137" y="403.5" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5qy-9p-kLz" appends="YES" id="Qop-eq-q44"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iGd-Go-4hO" firstAttribute="width" secondItem="cWE-C9-0Dn" secondAttribute="width" id="5w8-hi-neO"/>
+                            <constraint firstItem="hrk-Hd-ycH" firstAttribute="top" secondItem="cWE-C9-0Dn" secondAttribute="bottom" constant="20" id="Ikz-Y3-tDU"/>
+                            <constraint firstItem="cWE-C9-0Dn" firstAttribute="top" secondItem="iGd-Go-4hO" secondAttribute="bottom" constant="20" id="Toc-Hb-Gin"/>
+                            <constraint firstItem="hrk-Hd-ycH" firstAttribute="height" secondItem="cWE-C9-0Dn" secondAttribute="height" id="UlG-rH-Kpq"/>
+                            <constraint firstItem="hrk-Hd-ycH" firstAttribute="centerX" secondItem="cWE-C9-0Dn" secondAttribute="centerX" id="ajp-6d-5Ch"/>
+                            <constraint firstItem="iGd-Go-4hO" firstAttribute="height" secondItem="cWE-C9-0Dn" secondAttribute="height" id="d31-zR-0p7"/>
+                            <constraint firstItem="cWE-C9-0Dn" firstAttribute="centerY" secondItem="wLy-DS-zPi" secondAttribute="centerY" id="n4C-gO-qWA"/>
+                            <constraint firstItem="hrk-Hd-ycH" firstAttribute="width" secondItem="cWE-C9-0Dn" secondAttribute="width" id="nQX-kx-1hQ"/>
+                            <constraint firstItem="iGd-Go-4hO" firstAttribute="centerX" secondItem="cWE-C9-0Dn" secondAttribute="centerX" id="wcP-cb-g1K"/>
+                            <constraint firstItem="cWE-C9-0Dn" firstAttribute="centerX" secondItem="wLy-DS-zPi" secondAttribute="centerX" id="wdn-qd-Avo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2J1-id-csz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hNV-XZ-ih1"/>
+                    <connections>
+                        <outlet property="imageView" destination="iGd-Go-4hO" id="Du2-ME-coS"/>
+                        <outlet property="imageView2" destination="cWE-C9-0Dn" id="S0g-Yi-4Eo"/>
+                        <outlet property="imageView3" destination="hrk-Hd-ycH" id="yYJ-LQ-4FL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDf-do-GtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H81-Rz-9H8" userLabel="Image 1 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="tappedOnFirstImage:" destination="chs-30-0NM" id="2Dw-NS-jIK"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HUV-7G-2fe" userLabel="Image 2 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="tappedOnSecondImage:" destination="chs-30-0NM" id="DzH-FI-jhE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5qy-9p-kLz" userLabel="Image 3 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="tappedOnThirdImage:" destination="chs-30-0NM" id="2az-J9-0cO"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1570.4000000000001" y="1416.3418290854574"/>
+        </scene>
+        <!--Color Picker-->
+        <scene sceneID="3qp-tX-Mng">
+            <objects>
+                <viewController storyboardIdentifier="ColorPickerIdentifier" title="Color Picker" id="qMq-vU-YTt" customClass="ColorPickerViewController" customModule="HomeSplash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lht-vO-YX2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XEB-dj-EKM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zV-K2-hQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-824.79999999999995" y="1416.3418290854574"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CeO-is-JlC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uBG-TR-UA3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mMR-D8-ZkH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="chs-30-0NM" kind="relationship" relationship="rootViewController" id="gBh-Xi-wqN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cff-qt-TVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2342" y="1416"/>
+        </scene>
+    </scenes>
 </document>
