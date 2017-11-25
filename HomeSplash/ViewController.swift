@@ -38,6 +38,10 @@ class ViewController: UIViewController {
   
   private let imagePainter = ImagePainter()
   
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return UIStatusBarStyleContrast
+  }
+  
   private var selectedColor = UIColor.white {
     didSet {
       paintImages()
@@ -127,7 +131,7 @@ class ViewController: UIViewController {
     
     navigationController?.navigationBar.barTintColor = selectedColor
     
-    let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat:true)
+    let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat: true)
     navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
   }
   
