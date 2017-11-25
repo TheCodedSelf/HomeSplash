@@ -27,26 +27,50 @@
 /// THE SOFTWARE.
 
 import UIKit
+import ChameleonFramework
 
 class ViewController: UIViewController {
   
   @IBOutlet private weak var imageView: UIImageView!
   @IBOutlet private weak var imageView2: UIImageView!
   @IBOutlet private weak var imageView3: UIImageView!
+  @IBOutlet private weak var shadeStepper: UIStepper!
+  
   private let imagePainter = ImagePainter()
+  private var stepperValue = 0.0 {
+    didSet {
+      paintImages()
+    }
+  }
   
   private var selectedColor = UIColor.white {
     didSet {
-      updateColors()
+      paintImages()
+    }
+  }
+  
+  private var selectedColorWithShade: UIColor? {
+    let shadePercentage = CGFloat(abs(stepperValue / 100))
+    if stepperValue >= 0 {
+      return selectedColor.lighten(byPercentage: shadePercentage)
+    } else {
+      return selectedColor.darken(byPercentage: shadePercentage)
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    updateColors()
+    paintImages()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    shadeStepper.value = 0
+    stepperValue = 0
+    super.viewWillAppear(animated)
   }
   
   @IBAction private func shadeStepperChanged(_ sender: UIStepper) {
+    stepperValue = sender.value
   }
   
   @IBAction private func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
@@ -58,7 +82,7 @@ class ViewController: UIViewController {
       .instantiateViewController(withIdentifier: "ColorPickerIdentifier")
     
     guard let colorPicker = viewController as? ColorPickerViewController else {
-        return
+      return
     }
     
     colorPicker.onColorPicked { [weak self] in
@@ -68,11 +92,13 @@ class ViewController: UIViewController {
     navigationController?.pushViewController(colorPicker, animated: true)
   }
   
-  private func updateColors() {
-
-      imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: selectedColor)
-      imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: selectedColor)
-      imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: selectedColor)
+  private func paintImages() {
+    
+    let imageColor = selectedColorWithShade ?? selectedColor
+    
+    imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: imageColor)
+    imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: imageColor)
+    imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: imageColor)
   }
   
 }

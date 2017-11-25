@@ -54,7 +54,7 @@
                                     <outletCollection property="gestureRecognizers" destination="5qy-9p-kLz" appends="YES" id="Qop-eq-q44"/>
                                 </connections>
                             </imageView>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="R0Y-vw-2Er" userLabel="Shade Stepper">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="R0Y-vw-2Er" userLabel="Shade Stepper">
                                 <rect key="frame" x="140" y="588" width="94" height="29"/>
                                 <connections>
                                     <action selector="shadeStepperChanged:" destination="chs-30-0NM" eventType="valueChanged" id="Nz3-58-8OM"/>
@@ -85,6 +85,7 @@
                         <outlet property="imageView" destination="iGd-Go-4hO" id="Du2-ME-coS"/>
                         <outlet property="imageView2" destination="cWE-C9-0Dn" id="S0g-Yi-4Eo"/>
                         <outlet property="imageView3" destination="hrk-Hd-ycH" id="yYJ-LQ-4FL"/>
+                        <outlet property="shadeStepper" destination="R0Y-vw-2Er" id="hX1-sb-uE7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDf-do-GtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
