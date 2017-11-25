@@ -112,9 +112,8 @@ class ViewController: UIViewController {
   private func paintImages() {
     
     let imageColor = selectedColorWithShade ?? selectedColor
-    let colorsFromScheme = ColorSchemeOf(selectedColorScheme, color: imageColor, isFlatScheme: true)
+    let colorsFromScheme = ColorSchemeOf(selectedColorScheme, color: imageColor, isFlatScheme: false)
 
-    
     imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: colorsFromScheme[1])
     imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: colorsFromScheme[2])
     imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: colorsFromScheme[3])
