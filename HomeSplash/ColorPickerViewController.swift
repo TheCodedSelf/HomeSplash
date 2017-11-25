@@ -50,9 +50,19 @@ class ColorPickerViewController: UIViewController {
     self.updateWithColor = updateWithColor
   }
   
+  @IBAction private func randomColorTapped(_ sender: Any) {
+    let randomColor = RandomFlatColorWithShade(.light)
+    updateAndPop(color: randomColor)
+  }
+  
   @objc private func colorWasTapped(_ sender: UITapGestureRecognizer) {
     guard let color = sender.view?.backgroundColor else { return }
+    updateAndPop(color: color)
+  }
+  
+  private func updateAndPop(color: UIColor) {
     updateWithColor?(color)
     navigationController?.popViewController(animated: true)
   }
+  
 }
