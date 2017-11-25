@@ -37,11 +37,6 @@ class ViewController: UIViewController {
   @IBOutlet private weak var shadeStepper: UIStepper!
   
   private let imagePainter = ImagePainter()
-  private var stepperValue = 0.0 {
-    didSet {
-      paintImages()
-    }
-  }
   
   private var selectedColor = UIColor.white {
     didSet {
@@ -55,6 +50,18 @@ class ViewController: UIViewController {
       return selectedColor.lighten(byPercentage: shadePercentage)
     } else {
       return selectedColor.darken(byPercentage: shadePercentage)
+    }
+  }
+  
+  private var stepperValue = 0.0 {
+    didSet {
+      paintImages()
+    }
+  }
+  
+  private var selectedColorScheme = ColorScheme.analogous {
+    didSet {
+      paintImages()
     }
   }
   
@@ -74,6 +81,16 @@ class ViewController: UIViewController {
   }
   
   @IBAction private func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
+    switch sender.selectedSegmentIndex {
+    case 0:
+      selectedColorScheme = .analogous
+    case 1:
+      selectedColorScheme = .complementary
+    case 2:
+      selectedColorScheme = .triadic
+    default:
+      return
+    }
   }
   
   @IBAction private func showColorPicker(_ sender: Any) {
@@ -95,10 +112,12 @@ class ViewController: UIViewController {
   private func paintImages() {
     
     let imageColor = selectedColorWithShade ?? selectedColor
+    let colorsFromScheme = ColorSchemeOf(selectedColorScheme, color: imageColor, isFlatScheme: true)
+
     
-    imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: imageColor)
-    imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: imageColor)
-    imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: imageColor)
+    imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: colorsFromScheme[1])
+    imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: colorsFromScheme[2])
+    imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: colorsFromScheme[3])
   }
   
 }
