@@ -29,18 +29,33 @@
 import UIKit
 import CoreImage
 
-extension UIImage {
-  func painted(color: UIColor) -> UIImage? {
+class ImagePainter {
+  
+  let context = CIContext(options:[kCIImageColorSpace: NSNull()])
+  
+  let filter = CIFilter(name: "CIFalseColor",
+                        withInputParameters: ["inputColor1" : CIColor(color: .black)])
+  
+  func paint(image: UIImage?, color: UIColor) -> UIImage? {
     
-    guard let inputImage = CIImage(image: self) else { return nil }
+    guard let image = image,
+      let inputImage = CIImage(image: image) else {
+        return nil
+    }
     
-    let inputParameters: [String : Any] = ["inputImage" : inputImage,
-                                           "inputColor0" : CIColor(color: color),
-                                           "inputColor1" : CIColor(color: .black)]
+    filter?.setValue(inputImage, forKey: "inputImage")
+    filter?.setValue(CIColor(color: color), forKey: "inputColor0")
     
-    let filter = CIFilter(name: "CIFalseColor", withInputParameters: inputParameters)
+    guard let filter = filter,
+      let filterOutput = filter.outputImage else {
+        return nil
+    }
     
-    guard let outputImage = filter?.outputImage else { return nil }
-    return UIImage(ciImage: outputImage)
+    guard let outputImage = context.createCGImage(
+      filterOutput, from: filterOutput.extent) else {
+        return nil
+    }
+    
+    return UIImage(cgImage: outputImage)
   }
 }

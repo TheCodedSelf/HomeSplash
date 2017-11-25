@@ -30,34 +30,49 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var imageView2: UIImageView!
-  @IBOutlet weak var imageView3: UIImageView!
+  @IBOutlet private weak var imageView: UIImageView!
+  @IBOutlet private weak var imageView2: UIImageView!
+  @IBOutlet private weak var imageView3: UIImageView!
+  private let imagePainter = ImagePainter()
+  
+  private var selectedColor = UIColor.white {
+    didSet {
+      updateColors()
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    updateColors()
+  }
+  
+  @IBAction private func shadeStepperChanged(_ sender: UIStepper) {
+  }
+  
+  @IBAction private func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
+  }
+  
+  @IBAction private func showColorPicker(_ sender: Any) {
     
-    imageView2.image = #imageLiteral(resourceName: "sofa").painted(color: .red)
-    imageView3.image = #imageLiteral(resourceName: "bookshelf").painted(color: .blue)
-    imageView.image = #imageLiteral(resourceName: "armchair").painted(color: .purple)
-  }
-  
-  @IBAction func tappedOnFirstImage(_ sender: Any) {
-    showColorPicker()
-  }
-  
-  @IBAction func tappedOnSecondImage(_ sender: Any) {
-    showColorPicker()
-  }
-  
-  @IBAction func tappedOnThirdImage(_ sender: Any) {
-    showColorPicker()
-  }
-  
-  private func showColorPicker() {
-    let colorPicker = UIStoryboard(name: "Main", bundle: nil)
+    let viewController = UIStoryboard(name: "Main", bundle: nil)
       .instantiateViewController(withIdentifier: "ColorPickerIdentifier")
+    
+    guard let colorPicker = viewController as? ColorPickerViewController else {
+        return
+    }
+    
+    colorPicker.onColorPicked { [weak self] in
+      self?.selectedColor = $0
+    }
+    
     navigationController?.pushViewController(colorPicker, animated: true)
+  }
+  
+  private func updateColors() {
+
+      imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: selectedColor)
+      imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: selectedColor)
+      imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: selectedColor)
   }
   
 }

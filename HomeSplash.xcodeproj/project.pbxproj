@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9518F9D61FC7422C00876C24 /* UIImage Painted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518F9D51FC7422C00876C24 /* UIImage Painted.swift */; };
+		9518F9D61FC7422C00876C24 /* ImagePainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518F9D51FC7422C00876C24 /* ImagePainter.swift */; };
 		9518F9D81FC7459800876C24 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518F9D71FC7459800876C24 /* ColorPickerViewController.swift */; };
 		95C580181FC729CB00BBC319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C580171FC729CB00BBC319 /* ViewController.swift */; };
 		9AF0E74A2E51522AA889CF5E /* Pods_HomeSplash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105952B484C33BAE3DE17A16 /* Pods_HomeSplash.framework */; };
@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		105952B484C33BAE3DE17A16 /* Pods_HomeSplash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeSplash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9518F9D51FC7422C00876C24 /* UIImage Painted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Painted.swift"; sourceTree = "<group>"; };
+		9518F9D51FC7422C00876C24 /* ImagePainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePainter.swift; sourceTree = "<group>"; };
 		9518F9D71FC7459800876C24 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		95C580171FC729CB00BBC319 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* HomeSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +82,7 @@
 				D2A5F20A1F4A9144005CD714 /* Assets.xcassets */,
 				D2A5F20F1F4A9144005CD714 /* Info.plist */,
 				95C580171FC729CB00BBC319 /* ViewController.swift */,
-				9518F9D51FC7422C00876C24 /* UIImage Painted.swift */,
+				9518F9D51FC7422C00876C24 /* ImagePainter.swift */,
 				9518F9D71FC7459800876C24 /* ColorPickerViewController.swift */,
 			);
 			path = HomeSplash;
@@ -225,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9518F9D61FC7422C00876C24 /* UIImage Painted.swift in Sources */,
+				9518F9D61FC7422C00876C24 /* ImagePainter.swift in Sources */,
 				95C580181FC729CB00BBC319 /* ViewController.swift in Sources */,
 				9518F9D81FC7459800876C24 /* ColorPickerViewController.swift in Sources */,
 				D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */,

@@ -27,6 +27,32 @@
 /// THE SOFTWARE.
 
 import UIKit
+import ChameleonFramework
 
 class ColorPickerViewController: UIViewController {
+  
+  @IBOutlet var colorPalette: [UIView]!
+  private var updateWithColor: ((UIColor) -> ())?
+  
+  override func viewDidLoad() {
+    colorPalette.forEach { view in
+      view.backgroundColor = RandomFlatColorWithShade(.light)
+      view.layer.cornerRadius = view.frame.height / 2
+      
+      let gestureRecognizer = UITapGestureRecognizer(
+        target: self, action: #selector(colorWasTapped(_:)))
+      view.addGestureRecognizer(gestureRecognizer)
+    }
+    super.viewDidLoad()
+  }
+  
+  func onColorPicked(updateWithColor: @escaping (UIColor) -> ()) {
+    self.updateWithColor = updateWithColor
+  }
+  
+  @objc private func colorWasTapped(_ sender: UITapGestureRecognizer) {
+    guard let color = sender.view?.backgroundColor else { return }
+    updateWithColor?(color)
+    navigationController?.popViewController(animated: true)
+  }
 }
