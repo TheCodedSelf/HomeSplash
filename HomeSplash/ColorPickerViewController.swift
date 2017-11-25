@@ -55,6 +55,11 @@ class ColorPickerViewController: UIViewController {
     updateAndPop(color: randomColor)
   }
   
+  @IBAction func rayWenderlichGreenTapped(_ sender: Any) {
+    let rayWenderlichGreen = UIColor(hexString: "0B560E")!
+    updateAndPop(color: rayWenderlichGreen)
+  }
+  
   @objc private func colorWasTapped(_ sender: UITapGestureRecognizer) {
     guard let color = sender.view?.backgroundColor else { return }
     updateAndPop(color: color)

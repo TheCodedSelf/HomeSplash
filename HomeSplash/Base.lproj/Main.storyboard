@@ -147,7 +147,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DRT-Az-u9W" userLabel="Color Row">
-                                        <rect key="frame" x="35.5" y="136.5" width="272" height="80"/>
+                                        <rect key="frame" x="35.5" y="115" width="272" height="80"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPj-oh-R3F">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -164,7 +164,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="76f-kj-vst" userLabel="Color Row">
-                                        <rect key="frame" x="35.5" y="272.5" width="272" height="80"/>
+                                        <rect key="frame" x="35.5" y="229.5" width="272" height="80"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-q2-7zx">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -181,10 +181,17 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zm-Am-eTn" userLabel="Random Button">
-                                        <rect key="frame" x="143" y="409" width="57" height="30"/>
+                                        <rect key="frame" x="143" y="344.5" width="57" height="30"/>
                                         <state key="normal" title="Random"/>
                                         <connections>
                                             <action selector="randomColorTapped:" destination="qMq-vU-YTt" eventType="touchUpInside" id="bnH-Hz-LIi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76f-Sa-u6a">
+                                        <rect key="frame" x="93" y="409" width="157" height="30"/>
+                                        <state key="normal" title="Ray Wenderlich Green!"/>
+                                        <connections>
+                                            <action selector="rayWenderlichGreenTapped:" destination="qMq-vU-YTt" eventType="touchUpInside" id="XS0-AF-PtK"/>
                                         </connections>
                                     </button>
                                 </subviews>
