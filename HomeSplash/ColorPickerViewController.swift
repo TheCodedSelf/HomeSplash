@@ -62,7 +62,7 @@ class ColorPickerViewController: UIViewController {
   
   private func setUpColorPalette() {
     colorPalette.forEach { view in
-      view.backgroundColor = RandomFlatColorWithShade(.light)
+      
       view.layer.cornerRadius = view.frame.height / 2
       
       let gestureRecognizer = UITapGestureRecognizer(
