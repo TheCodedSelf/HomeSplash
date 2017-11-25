@@ -41,6 +41,7 @@ class ViewController: UIViewController {
   private var selectedColor = UIColor.white {
     didSet {
       paintImages()
+      updateAppTheme()
     }
   }
   
@@ -68,6 +69,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     paintImages()
+    navigationController?.navigationBar.isTranslucent = false
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -112,11 +114,21 @@ class ViewController: UIViewController {
   private func paintImages() {
     
     let imageColor = selectedColorWithShade ?? selectedColor
-    let colorsFromScheme = ColorSchemeOf(selectedColorScheme, color: imageColor, isFlatScheme: false)
+    let colorsFromScheme = ColorSchemeOf(
+      selectedColorScheme, color: imageColor, isFlatScheme: false)
 
     imageView.image = imagePainter.paint(image: #imageLiteral(resourceName: "sofa"), color: colorsFromScheme[1])
     imageView2.image = imagePainter.paint(image: #imageLiteral(resourceName: "armchair"), color: colorsFromScheme[2])
     imageView3.image = imagePainter.paint(image: #imageLiteral(resourceName: "bookshelf"), color: colorsFromScheme[3])
+  }
+  
+  private func updateAppTheme() {
+    Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
+    
+    navigationController?.navigationBar.barTintColor = selectedColor
+    
+    let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat:true)
+    navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
   }
   
 }

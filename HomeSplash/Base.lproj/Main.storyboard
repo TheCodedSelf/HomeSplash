@@ -242,6 +242,8 @@
                         <outletCollection property="colorPalette" destination="h1p-q2-7zx" collectionClass="NSMutableArray" id="XMn-Iz-Ecc"/>
                         <outletCollection property="colorPalette" destination="y9j-ni-uLD" collectionClass="NSMutableArray" id="ZM8-6G-RTs"/>
                         <outletCollection property="colorPalette" destination="dRD-J7-h3h" collectionClass="NSMutableArray" id="cjK-hg-Bfc"/>
+                        <outletCollection property="buttons" destination="76f-Sa-u6a" collectionClass="NSMutableArray" id="5jY-DB-l5e"/>
+                        <outletCollection property="buttons" destination="2zm-Am-eTn" collectionClass="NSMutableArray" id="mMC-5S-QLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zV-K2-hQh" userLabel="First Responder" sceneMemberID="firstResponder"/>

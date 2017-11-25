@@ -31,19 +31,14 @@ import ChameleonFramework
 
 class ColorPickerViewController: UIViewController {
   
+  @IBOutlet var buttons: [UIButton]!
   @IBOutlet var colorPalette: [UIView]!
   private var updateWithColor: ((UIColor) -> ())?
   
   override func viewDidLoad() {
-    colorPalette.forEach { view in
-      view.backgroundColor = RandomFlatColorWithShade(.light)
-      view.layer.cornerRadius = view.frame.height / 2
-      
-      let gestureRecognizer = UITapGestureRecognizer(
-        target: self, action: #selector(colorWasTapped(_:)))
-      view.addGestureRecognizer(gestureRecognizer)
-    }
     super.viewDidLoad()
+    setUpColorPalette()
+    styleButtons()
   }
   
   func onColorPicked(updateWithColor: @escaping (UIColor) -> ()) {
@@ -55,7 +50,7 @@ class ColorPickerViewController: UIViewController {
     updateAndPop(color: randomColor)
   }
   
-  @IBAction func rayWenderlichGreenTapped(_ sender: Any) {
+  @IBAction private func rayWenderlichGreenTapped(_ sender: Any) {
     let rayWenderlichGreen = UIColor(hexString: "0B560E")!
     updateAndPop(color: rayWenderlichGreen)
   }
@@ -63,6 +58,24 @@ class ColorPickerViewController: UIViewController {
   @objc private func colorWasTapped(_ sender: UITapGestureRecognizer) {
     guard let color = sender.view?.backgroundColor else { return }
     updateAndPop(color: color)
+  }
+  
+  private func setUpColorPalette() {
+    colorPalette.forEach { view in
+      view.backgroundColor = RandomFlatColorWithShade(.light)
+      view.layer.cornerRadius = view.frame.height / 2
+      
+      let gestureRecognizer = UITapGestureRecognizer(
+        target: self, action: #selector(colorWasTapped(_:)))
+      view.addGestureRecognizer(gestureRecognizer)
+    }
+  }
+  
+  private func styleButtons() {
+    buttons.forEach {
+      $0.layer.cornerRadius = 10
+      $0.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
   }
   
   private func updateAndPop(color: UIColor) {
