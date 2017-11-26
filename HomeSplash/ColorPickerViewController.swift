@@ -27,7 +27,6 @@
 /// THE SOFTWARE.
 
 import UIKit
-import ChameleonFramework
 
 class ColorPickerViewController: UIViewController {
   
@@ -46,13 +45,9 @@ class ColorPickerViewController: UIViewController {
   }
   
   @IBAction func randomColorTapped(_ sender: Any) {
-    let randomColor = RandomFlatColorWithShade(.light)
-    updateAndPop(color: randomColor)
   }
   
   @IBAction func rayWenderlichGreenTapped(_ sender: Any) {
-    let rayWenderlichGreen = UIColor(hexString: "0B560E")!
-    updateAndPop(color: rayWenderlichGreen)
   }
   
   @objc func colorWasTapped(_ sender: UITapGestureRecognizer) {
@@ -72,10 +67,6 @@ class ColorPickerViewController: UIViewController {
   }
   
   func styleButtons() {
-    buttons.forEach {
-      $0.layer.cornerRadius = 10
-      $0.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-    }
   }
   
   func updateAndPop(color: UIColor) {

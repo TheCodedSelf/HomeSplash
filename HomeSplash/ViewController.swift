@@ -27,7 +27,6 @@
 /// THE SOFTWARE.
 
 import UIKit
-import ChameleonFramework
 
 class ViewController: UIViewController {
   
@@ -45,22 +44,7 @@ class ViewController: UIViewController {
     }
   }
   
-  var selectedColorWithShade: UIColor? {
-    let shadePercentage = CGFloat(abs(stepperValue / 100))
-    if stepperValue >= 0 {
-      return selectedColor.lighten(byPercentage: shadePercentage)
-    } else {
-      return selectedColor.darken(byPercentage: shadePercentage)
-    }
-  }
-  
   var stepperValue = 0.0 {
-    didSet {
-      paintImages()
-    }
-  }
-  
-  var selectedColorScheme = ColorScheme.analogous {
     didSet {
       paintImages()
     }
@@ -82,16 +66,6 @@ class ViewController: UIViewController {
   }
   
   @IBAction func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
-    switch sender.selectedSegmentIndex {
-    case 0:
-      selectedColorScheme = .analogous
-    case 1:
-      selectedColorScheme = .complementary
-    case 2:
-      selectedColorScheme = .triadic
-    default:
-      return
-    }
   }
   
   @IBAction func showColorPicker(_ sender: Any) {
@@ -107,34 +81,19 @@ class ViewController: UIViewController {
       self?.selectedColor = $0
     }
     
-    colorPicker.view.backgroundColor = UIColor(gradientStyle: .topToBottom,
-                                   withFrame: colorPicker.view.frame,
-                                   andColors: [.flatWhite, .flatWhite, selectedColor])
-    
     navigationController?.pushViewController(colorPicker, animated: true)
   }
   
   func paintImages() {
-    
-    let imageColor = selectedColorWithShade ?? selectedColor
-    let colorsFromScheme = ColorSchemeOf(
-      selectedColorScheme, color: imageColor, isFlatScheme: false)
-    
     imageView.image = imagePainter.paint(image: UIImage(named: "sofa"),
-                                         color: colorsFromScheme[1])
+                                         color: selectedColor)
     imageView2.image = imagePainter.paint(image: UIImage(named: "armchair"),
-                                          color: colorsFromScheme[2])
+                                          color: selectedColor)
     imageView3.image = imagePainter.paint(image: UIImage(named: "bookshelf"),
-                                          color: colorsFromScheme[3])
+                                          color: selectedColor)
   }
   
   func updateAppTheme() {
-    Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
-    
-    navigationController?.navigationBar.barTintColor = selectedColor
-    
-    let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat: true)
-    navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
   }
   
 }
