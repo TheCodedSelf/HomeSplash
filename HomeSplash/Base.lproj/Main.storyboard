@@ -122,11 +122,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tyj-fl-mkU" userLabel="Colors">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tyj-fl-mkU" userLabel="Colors">
                                 <rect key="frame" x="16" y="52" width="343" height="526"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" distribution="fillEqually" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lw8-id-6fd" userLabel="First Color Row">
-                                        <rect key="frame" x="35.666666666666657" y="0.0" width="272" height="97.333333333333329"/>
+                                        <rect key="frame" x="35.666666666666657" y="0.0" width="272" height="142"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deP-S4-5Cf" userLabel="Color View">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -154,7 +154,7 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DRT-Az-u9W" userLabel="Second Color Row">
-                                        <rect key="frame" x="35.666666666666657" y="107.33333333333334" width="272" height="97"/>
+                                        <rect key="frame" x="35.666666666666657" y="152" width="272" height="142"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPj-oh-R3F" userLabel="Color View">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -172,7 +172,7 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="76f-kj-vst" userLabel="Third Color Row">
-                                        <rect key="frame" x="35.666666666666657" y="214.33333333333334" width="272" height="97.333333333333343"/>
+                                        <rect key="frame" x="35.666666666666657" y="304" width="272" height="142"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-q2-7zx" userLabel="Color View">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -189,15 +189,15 @@
                                         </subviews>
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zm-Am-eTn" userLabel="Random Button">
-                                        <rect key="frame" x="143" y="321.66666666666669" width="57" height="97"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zm-Am-eTn" userLabel="Random Button">
+                                        <rect key="frame" x="143" y="456" width="57" height="30"/>
                                         <state key="normal" title="Random"/>
                                         <connections>
                                             <action selector="randomColorTapped:" destination="qMq-vU-YTt" eventType="touchUpInside" id="bnH-Hz-LIi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76f-Sa-u6a">
-                                        <rect key="frame" x="93" y="428.66666666666669" width="157" height="97.333333333333314"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76f-Sa-u6a">
+                                        <rect key="frame" x="93" y="496" width="157" height="30"/>
                                         <state key="normal" title="Ray Wenderlich Green!"/>
                                         <connections>
                                             <action selector="rayWenderlichGreenTapped:" destination="qMq-vU-YTt" eventType="touchUpInside" id="XS0-AF-PtK"/>
@@ -205,12 +205,14 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Lw8-id-6fd" firstAttribute="height" secondItem="76f-kj-vst" secondAttribute="height" id="0ca-fX-3nS"/>
                                     <constraint firstItem="dRD-J7-h3h" firstAttribute="width" secondItem="deP-S4-5Cf" secondAttribute="width" id="98p-gO-XA6"/>
                                     <constraint firstItem="y9j-ni-uLD" firstAttribute="height" secondItem="deP-S4-5Cf" secondAttribute="height" id="JMr-Wb-xlN"/>
                                     <constraint firstItem="h1p-q2-7zx" firstAttribute="height" secondItem="deP-S4-5Cf" secondAttribute="height" id="Jef-B5-o6s"/>
                                     <constraint firstItem="VPj-oh-R3F" firstAttribute="width" secondItem="deP-S4-5Cf" secondAttribute="width" id="Orr-0x-bXZ"/>
                                     <constraint firstItem="VPj-oh-R3F" firstAttribute="height" secondItem="deP-S4-5Cf" secondAttribute="height" id="TOH-RR-jSA"/>
                                     <constraint firstItem="KtN-Hj-khF" firstAttribute="width" secondItem="deP-S4-5Cf" secondAttribute="width" id="Vq9-w3-Gie"/>
+                                    <constraint firstItem="Lw8-id-6fd" firstAttribute="height" secondItem="DRT-Az-u9W" secondAttribute="height" id="ZQY-p2-xn8"/>
                                     <constraint firstItem="dRD-J7-h3h" firstAttribute="height" secondItem="deP-S4-5Cf" secondAttribute="height" id="fvd-Vo-Pgu"/>
                                     <constraint firstItem="w5f-LD-586" firstAttribute="height" secondItem="deP-S4-5Cf" secondAttribute="height" id="lcF-Of-Ovp"/>
                                     <constraint firstItem="KtN-Hj-khF" firstAttribute="height" secondItem="deP-S4-5Cf" secondAttribute="height" id="tYm-I0-DP4"/>
