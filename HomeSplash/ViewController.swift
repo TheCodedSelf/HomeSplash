@@ -112,6 +112,10 @@ class ViewController: UIViewController {
       self?.selectedColor = $0
     }
     
+    colorPicker.view.backgroundColor = UIColor(gradientStyle: .topToBottom,
+                                   withFrame: colorPicker.view.frame,
+                                   andColors: [.flatWhite, .flatWhite, selectedColor])
+    
     navigationController?.pushViewController(colorPicker, animated: true)
   }
   
