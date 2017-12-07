@@ -38,10 +38,6 @@ class ViewController: UIViewController {
   
   private let imagePainter = ImagePainter()
   
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return UIStatusBarStyleContrast
-  }
-  
   private var selectedColor = UIColor.white {
     didSet {
       paintImages()
