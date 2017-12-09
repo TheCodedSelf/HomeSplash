@@ -31,21 +31,21 @@ import ChameleonFramework
 
 class ViewController: UIViewController {
   
-  @IBOutlet private weak var imageView: UIImageView!
-  @IBOutlet private weak var imageView2: UIImageView!
-  @IBOutlet private weak var imageView3: UIImageView!
-  @IBOutlet private weak var shadeStepper: UIStepper!
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var imageView2: UIImageView!
+  @IBOutlet weak var imageView3: UIImageView!
+  @IBOutlet weak var shadeStepper: UIStepper!
   
-  private let imagePainter = ImagePainter()
+  let imagePainter = ImagePainter()
   
-  private var selectedColor = UIColor.white {
+  var selectedColor = UIColor.white {
     didSet {
       paintImages()
       updateAppTheme()
     }
   }
   
-  private var selectedColorWithShade: UIColor? {
+  var selectedColorWithShade: UIColor? {
     let shadePercentage = CGFloat(abs(stepperValue / 100))
     if stepperValue >= 0 {
       return selectedColor.lighten(byPercentage: shadePercentage)
@@ -54,13 +54,13 @@ class ViewController: UIViewController {
     }
   }
   
-  private var stepperValue = 0.0 {
+  var stepperValue = 0.0 {
     didSet {
       paintImages()
     }
   }
   
-  private var selectedColorScheme = ColorScheme.analogous {
+  var selectedColorScheme = ColorScheme.analogous {
     didSet {
       paintImages()
     }
@@ -77,11 +77,11 @@ class ViewController: UIViewController {
     super.viewWillAppear(animated)
   }
   
-  @IBAction private func shadeStepperChanged(_ sender: UIStepper) {
+  @IBAction func shadeStepperChanged(_ sender: UIStepper) {
     stepperValue = sender.value
   }
   
-  @IBAction private func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
+  @IBAction func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
     switch sender.selectedSegmentIndex {
     case 0:
       selectedColorScheme = .analogous
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     }
   }
   
-  @IBAction private func showColorPicker(_ sender: Any) {
+  @IBAction func showColorPicker(_ sender: Any) {
     
     let viewController = UIStoryboard(name: "Main", bundle: nil)
       .instantiateViewController(withIdentifier: "ColorPickerIdentifier")
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
     navigationController?.pushViewController(colorPicker, animated: true)
   }
   
-  private func paintImages() {
+  func paintImages() {
     
     let imageColor = selectedColorWithShade ?? selectedColor
     let colorsFromScheme = ColorSchemeOf(
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
                                           color: colorsFromScheme[3])
   }
   
-  private func updateAppTheme() {
+  func updateAppTheme() {
     Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
     
     navigationController?.navigationBar.barTintColor = selectedColor

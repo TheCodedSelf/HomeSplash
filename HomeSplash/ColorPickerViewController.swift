@@ -33,7 +33,7 @@ class ColorPickerViewController: UIViewController {
   
   @IBOutlet var buttons: [UIButton]!
   @IBOutlet var colorPalette: [UIView]!
-  private var updateWithColor: ((UIColor) -> ())?
+  var updateWithColor: ((UIColor) -> ())?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,22 +45,22 @@ class ColorPickerViewController: UIViewController {
     self.updateWithColor = updateWithColor
   }
   
-  @IBAction private func randomColorTapped(_ sender: Any) {
+  @IBAction func randomColorTapped(_ sender: Any) {
     let randomColor = RandomFlatColorWithShade(.light)
     updateAndPop(color: randomColor)
   }
   
-  @IBAction private func rayWenderlichGreenTapped(_ sender: Any) {
+  @IBAction func rayWenderlichGreenTapped(_ sender: Any) {
     let rayWenderlichGreen = UIColor(hexString: "0B560E")!
     updateAndPop(color: rayWenderlichGreen)
   }
   
-  @objc private func colorWasTapped(_ sender: UITapGestureRecognizer) {
+  @objc func colorWasTapped(_ sender: UITapGestureRecognizer) {
     guard let color = sender.view?.backgroundColor else { return }
     updateAndPop(color: color)
   }
   
-  private func setUpColorPalette() {
+  func setUpColorPalette() {
     colorPalette.forEach { view in
       
       view.layer.cornerRadius = view.frame.height / 2
@@ -71,14 +71,14 @@ class ColorPickerViewController: UIViewController {
     }
   }
   
-  private func styleButtons() {
+  func styleButtons() {
     buttons.forEach {
       $0.layer.cornerRadius = 10
       $0.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
   }
   
-  private func updateAndPop(color: UIColor) {
+  func updateAndPop(color: UIColor) {
     updateWithColor?(color)
     navigationController?.popViewController(animated: true)
   }
