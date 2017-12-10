@@ -133,6 +133,8 @@ class ViewController: UIViewController {
   
   func updateAppTheme() {
     Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
+    
+    navigationController?.navigationBar.barTintColor = selectedColor
   }
   
 }
