@@ -72,6 +72,10 @@ class ColorPickerViewController: UIViewController {
   }
   
   func styleButtons() {
+    buttons.forEach {
+      $0.layer.cornerRadius = 10
+      $0.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
   }
   
   func updateAndPop(color: UIColor) {
