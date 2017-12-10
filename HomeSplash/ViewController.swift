@@ -45,6 +45,20 @@ class ViewController: UIViewController {
     }
   }
   
+  var selectedColorWithShade: UIColor {
+    
+    // 1
+    let shadePercentage = CGFloat(abs(stepperValue / 100))
+    
+    if stepperValue >= 0 {
+      // 2
+      return selectedColor.lighten(byPercentage: shadePercentage)!
+    } else {
+      // 3
+      return selectedColor.darken(byPercentage: shadePercentage)!
+    }
+  }
+  
   var selectedColorScheme = ColorScheme.analogous {
     didSet {
       paintImages()
@@ -101,7 +115,7 @@ class ViewController: UIViewController {
   }
   
   func paintImages() {
-    let baseColor = selectedColor
+    let baseColor = selectedColorWithShade
     
     // 1
     let colorsFromScheme = ColorSchemeOf(selectedColorScheme,
