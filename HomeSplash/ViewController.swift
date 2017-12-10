@@ -132,6 +132,7 @@ class ViewController: UIViewController {
   }
   
   func updateAppTheme() {
+    Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
   }
   
 }
