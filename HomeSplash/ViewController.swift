@@ -135,6 +135,8 @@ class ViewController: UIViewController {
     Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
     
     navigationController?.navigationBar.barTintColor = selectedColor
+    let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat: true)
+    navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
   }
   
 }
