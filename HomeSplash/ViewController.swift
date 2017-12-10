@@ -45,6 +45,12 @@ class ViewController: UIViewController {
     }
   }
   
+  var selectedColorScheme = ColorScheme.analogous {
+    didSet {
+      paintImages()
+    }
+  }
+  
   var stepperValue = 0.0 {
     didSet {
       paintImages()
@@ -67,6 +73,16 @@ class ViewController: UIViewController {
   }
   
   @IBAction func colorSchemeSelectionChanged(_ sender: UISegmentedControl) {
+    switch sender.selectedSegmentIndex {
+    case 0:
+      selectedColorScheme = .analogous
+    case 1:
+      selectedColorScheme = .complementary
+    case 2:
+      selectedColorScheme = .triadic
+    default:
+      return
+    }
   }
   
   @IBAction func showColorPicker(_ sender: Any) {
@@ -85,12 +101,20 @@ class ViewController: UIViewController {
   }
   
   func paintImages() {
+    let baseColor = selectedColor
+    
+    // 1
+    let colorsFromScheme = ColorSchemeOf(selectedColorScheme,
+                                         color: baseColor,
+                                         isFlatScheme: false)
+    
+    // 2
     imageView.image = imagePainter.paint(image: UIImage(named: "sofa"),
-                                         color: selectedColor)
+                                         color: colorsFromScheme[1])
     imageView2.image = imagePainter.paint(image: UIImage(named: "armchair"),
-                                          color: selectedColor)
+                                          color: colorsFromScheme[2])
     imageView3.image = imagePainter.paint(image: UIImage(named: "bookshelf"),
-                                          color: selectedColor)
+                                          color: colorsFromScheme[3])
   }
   
   func updateAppTheme() {
