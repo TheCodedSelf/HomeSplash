@@ -111,6 +111,8 @@ class ViewController: UIViewController {
       self?.selectedColor = $0
     }
     
+    colorPicker.view.backgroundColor = selectedColor
+    
     navigationController?.pushViewController(colorPicker, animated: true)
   }
   
