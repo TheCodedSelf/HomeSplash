@@ -69,7 +69,6 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showColorPicker(_ sender: Any) {
-    
     let viewController = UIStoryboard(name: "Main", bundle: nil)
       .instantiateViewController(withIdentifier: "ColorPickerIdentifier")
     
