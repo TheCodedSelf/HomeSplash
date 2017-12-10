@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uBG-TR-UA3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uBG-TR-UA3">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-EX-M4m" userLabel="Color Scheme Segmented Control">
-                                <rect key="frame" x="96.666666666666686" y="118" width="182" height="29"/>
+                                <rect key="frame" x="96.666666666666686" y="108" width="182" height="29"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -67,7 +67,7 @@
                                 <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="R0Y-vw-2Er" userLabel="Shade Stepper">
-                                <rect key="frame" x="140.66666666666666" y="719" width="94" height="29"/>
+                                <rect key="frame" x="140.66666666666666" y="729" width="94" height="29"/>
                                 <connections>
                                     <action selector="shadeStepperChanged:" destination="chs-30-0NM" eventType="valueChanged" id="Nz3-58-8OM"/>
                                 </connections>
@@ -78,9 +78,9 @@
                             <constraint firstItem="R0Y-vw-2Er" firstAttribute="centerX" secondItem="wLy-DS-zPi" secondAttribute="centerX" id="3ju-TF-RIY"/>
                             <constraint firstItem="uv4-TI-faP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bUf-EX-M4m" secondAttribute="bottom" constant="8" id="4ss-Eq-xhr"/>
                             <constraint firstItem="R0Y-vw-2Er" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uv4-TI-faP" secondAttribute="bottom" constant="8" id="AvG-Jk-HoB"/>
-                            <constraint firstItem="bUf-EX-M4m" firstAttribute="top" secondItem="2J1-id-csz" secondAttribute="top" constant="30" id="Fiq-7t-abM"/>
+                            <constraint firstItem="bUf-EX-M4m" firstAttribute="top" secondItem="2J1-id-csz" secondAttribute="top" constant="20" id="Fiq-7t-abM"/>
                             <constraint firstItem="bUf-EX-M4m" firstAttribute="centerX" secondItem="wLy-DS-zPi" secondAttribute="centerX" id="GyM-66-wxy"/>
-                            <constraint firstItem="2J1-id-csz" firstAttribute="bottom" secondItem="R0Y-vw-2Er" secondAttribute="bottom" constant="30" id="IGe-dZ-B0J"/>
+                            <constraint firstItem="2J1-id-csz" firstAttribute="bottom" secondItem="R0Y-vw-2Er" secondAttribute="bottom" constant="20" id="IGe-dZ-B0J"/>
                             <constraint firstItem="uv4-TI-faP" firstAttribute="centerX" secondItem="wLy-DS-zPi" secondAttribute="centerX" id="XcX-TM-5O7"/>
                             <constraint firstItem="uv4-TI-faP" firstAttribute="centerY" secondItem="wLy-DS-zPi" secondAttribute="centerY" id="cNF-Gi-Mek"/>
                             <constraint firstItem="bUf-EX-M4m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2J1-id-csz" secondAttribute="leading" constant="8" id="lwx-H1-Ia1"/>
