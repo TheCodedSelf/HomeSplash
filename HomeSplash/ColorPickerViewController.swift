@@ -46,6 +46,8 @@ class ColorPickerViewController: UIViewController {
   }
   
   @IBAction func randomColorTapped(_ sender: Any) {
+    let randomColor = UIColor.randomFlat
+    updateAndPop(color: randomColor)
   }
   
   @IBAction func rayWenderlichGreenTapped(_ sender: Any) {
