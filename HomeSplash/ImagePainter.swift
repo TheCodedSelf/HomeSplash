@@ -37,7 +37,6 @@ class ImagePainter {
                         withInputParameters: ["inputColor1" : CIColor(color: .black)])
   
   func paint(image: UIImage?, color: UIColor) -> UIImage? {
-    
     guard let image = image,
       let inputImage = CIImage(image: image) else {
         return nil

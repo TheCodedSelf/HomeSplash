@@ -45,22 +45,26 @@ class ViewController: UIViewController {
     }
   }
   
-  var selectedColorWithShade: UIColor? {
+  var selectedColorWithShade: UIColor {
+    // 1
     let shadePercentage = CGFloat(abs(stepperValue / 100))
+    
     if stepperValue >= 0 {
-      return selectedColor.lighten(byPercentage: shadePercentage)
+      // 2
+      return selectedColor.lighten(byPercentage: shadePercentage)!
     } else {
-      return selectedColor.darken(byPercentage: shadePercentage)
+      // 3
+      return selectedColor.darken(byPercentage: shadePercentage)!
     }
   }
   
-  var stepperValue = 0.0 {
+  var selectedColorScheme = ColorScheme.analogous {
     didSet {
       paintImages()
     }
   }
   
-  var selectedColorScheme = ColorScheme.analogous {
+  var stepperValue = 0.0 {
     didSet {
       paintImages()
     }
@@ -95,7 +99,6 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showColorPicker(_ sender: Any) {
-    
     let viewController = UIStoryboard(name: "Main", bundle: nil)
       .instantiateViewController(withIdentifier: "ColorPickerIdentifier")
     
@@ -108,18 +111,21 @@ class ViewController: UIViewController {
     }
     
     colorPicker.view.backgroundColor = UIColor(gradientStyle: .topToBottom,
-                                   withFrame: colorPicker.view.frame,
-                                   andColors: [.flatWhite, .flatWhite, selectedColor])
+                                               withFrame: colorPicker.view.frame,
+                                               andColors: [.flatWhite, .flatWhite, selectedColor])
     
     navigationController?.pushViewController(colorPicker, animated: true)
   }
   
   func paintImages() {
+    let baseColor = selectedColorWithShade
     
-    let imageColor = selectedColorWithShade ?? selectedColor
-    let colorsFromScheme = ColorSchemeOf(
-      selectedColorScheme, color: imageColor, isFlatScheme: false)
+    // 1
+    let colorsFromScheme = ColorSchemeOf(selectedColorScheme,
+                                         color: baseColor,
+                                         isFlatScheme: false)
     
+    // 2
     imageView.image = imagePainter.paint(image: UIImage(named: "sofa"),
                                          color: colorsFromScheme[1])
     imageView2.image = imagePainter.paint(image: UIImage(named: "armchair"),
@@ -132,7 +138,6 @@ class ViewController: UIViewController {
     Chameleon.setGlobalThemeUsingPrimaryColor(selectedColor, with: .contrast)
     
     navigationController?.navigationBar.barTintColor = selectedColor
-    
     let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat: true)
     navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
   }
